@@ -18,7 +18,7 @@ export class RegistroFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.fb.group({
-      nombre_completo: new FormControl('', Validators.required),
+      nombres: new FormControl('', Validators.required),
       fecha_nacimiento: new FormControl('', Validators.required),
       fecha_inscripcion: new FormControl('', Validators.required),
       edad: new FormControl(0, Validators.required),

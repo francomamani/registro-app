@@ -3,8 +3,8 @@
 <form [formGroup]="formGroup" *ngIf="formGroup !== undefined" (submit)="saveUser()">
   <div>
     <label>Nombre Completo</label>
-    <input type="text" formControlName="nombre_completo" required>
-    <div *ngIf="this.formGroup.value.nombre_completo.trim().split(' ').length < 2">
+    <input type="text" formControlName="nombres" required>
+    <div *ngIf="this.formGroup.value.nombres.trim().split(' ').length < 2">
       <small class="required">nombre completo debe tener al menos dos palabras</small>
     </div>
   </div>
@@ -30,6 +30,6 @@
   <div>
     <button type="submit" [disabled]="!formGroup.valid ||
     this.formGroup.value.fecha_nacimiento > this.formGroup.value.fecha_inscripcion ||
-    this.formGroup.value.nombre_completo.trim().split(' ').length < 2">Guardar Usuario</button>
+    this.formGroup.value.nombres.trim().split(' ').length < 2">Guardar Usuario</button>
   </div>
 </form>
