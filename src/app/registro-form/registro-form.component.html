@@ -11,7 +11,7 @@
   </div>
   <div>
     <label>Edad</label>
-    <input type="number" formControlName="edad" required>
+    <input type="number" formControlName="edad" required readonly>
   </div>
   <div>
     <label>Fecha Nacimiento</label>
@@ -19,8 +19,7 @@
   </div>
   <div>
     <label>Fecha Inscripcion</label>
-    <input type="date" formControlName="fecha_inscripcion" required>
-    <span *ngIf="formGroup.get('fecha_nacimiento').value > formGroup.get('fecha_inscripcion').value">La fecha de inscripcion debe ser mayor que la fecha de nacimiento</span>
+    <input type="date" formControlName="fecha_inscripcion" (change)="setEdad()"  required>
   </div>
   <div>
     <label>Costo</label>
