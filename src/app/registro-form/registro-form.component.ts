@@ -17,11 +17,12 @@ export class RegistroFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.fb.group({
-      nombre_completo: [''],
-      edad: [''],
+      nombres: [''],
+      apellidos: [''],
+      edad: [null],
       fecha_nacimiento: [''],
       fecha_inscripcion: [''],
-      costo: [0],
+      costo: [null],
     });
   }
 

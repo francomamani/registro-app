@@ -1,5 +1,6 @@
 export interface IUser {
-  nombre_completo: string;
+  nombres: string;
+  apellidos: string;
   edad: string;
   fecha_nacimiento: string;
   fecha_inscripcion: string;
