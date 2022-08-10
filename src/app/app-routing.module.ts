@@ -7,12 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: RegistroTableComponent,
-    children: [
-      {
-        path: 'form',
-        component: RegistroFormComponent
-      }
-    ]
+  },
+  {
+    path: 'form',
+    component: RegistroFormComponent
   }
 ];
 

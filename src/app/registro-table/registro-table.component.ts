@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {RegistroService} from "../services/registro.service";
+import {IUser} from "../interfaces/user";
 
 @Component({
   selector: 'app-registro-table',
@@ -7,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroTableComponent implements OnInit {
 
-  personas: any[] = [];
+  users: IUser[] = [];
 
-  constructor() { }
+  constructor(public registroService: RegistroService) { }
 
   ngOnInit(): void {
+    this.registroService.getUsers()
+      .subscribe((users: any) => {
+        this.users = users;
+      })
   }
 
 }

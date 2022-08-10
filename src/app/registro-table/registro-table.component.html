@@ -1,3 +1,4 @@
+<a [routerLink]="'/form'">Registrar nuevo</a>
 <table>
   <thead>
     <tr>
@@ -9,12 +10,12 @@
     </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let persona of personas">
-    <td>{{ persona.nombre_completo }}</td>
-    <td>{{ persona.edad }}</td>
-    <td>{{ persona.fecha_nacimiento }}</td>
-    <td>{{ persona.fecha_inscripcion }}</td>
-    <td>{{ persona.costo }}</td>
+  <tr *ngFor="let user of users">
+    <td>{{ user.nombre_completo }}</td>
+    <td>{{ user.edad }}</td>
+    <td>{{ user.fecha_nacimiento }}</td>
+    <td>{{ user.fecha_inscripcion }}</td>
+    <td>{{ user.costo }}</td>
   </tr>
   </tbody>
 </table>
