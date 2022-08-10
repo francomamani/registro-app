@@ -4,6 +4,9 @@
   <div>
     <label>Nombre Completo</label>
     <input type="text" formControlName="nombre_completo" required>
+    <div *ngIf="this.formGroup.value.nombre_completo.trim().split(' ').length < 2">
+      <small class="required">nombre completo debe tener al menos dos palabras</small>
+    </div>
   </div>
   <div>
     <label>Fecha Nacimiento</label>
@@ -12,6 +15,10 @@
   <div>
     <label>Fecha Inscripcion</label>
     <input type="date" formControlName="fecha_inscripcion" (change)="setEdad()" required>
+    <div *ngIf="this.formGroup.value.fecha_nacimiento > this.formGroup.value.fecha_inscripcion">
+      <span class="required">La fecha de nacimiento no puede ser mayor a la fecha de inscripcion</span>
+    </div>
+
   </div>
   <div>
     <label>Edad: {{ formGroup.get('edad')!!.value }}</label>
@@ -21,6 +28,8 @@
     <input type="number" formControlName="costo" required>
   </div>
   <div>
-    <button type="submit">Guardar Usuario</button>
+    <button type="submit" [disabled]="!formGroup.valid ||
+    this.formGroup.value.fecha_nacimiento > this.formGroup.value.fecha_inscripcion ||
+    this.formGroup.value.nombre_completo.trim().split(' ').length < 2">Guardar Usuario</button>
   </div>
 </form>
