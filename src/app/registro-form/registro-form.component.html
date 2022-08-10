@@ -26,7 +26,7 @@
     </div>
   </div>
   <div>
-    <label>Costo: <strong>{{ formGroup.get('costo').value }} dolares</strong></label>
+    <label>Costo: <strong>{{ formGroup.get('costo')!!.value }} dolares</strong></label>
   </div>
   <div>
     <button type="submit" [disabled]="!formGroup.valid ||

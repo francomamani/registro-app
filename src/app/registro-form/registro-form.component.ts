@@ -27,14 +27,16 @@ export class RegistroFormComponent implements OnInit {
   }
 
   public setEdadAndCosto() {
-    const edad = DateTime.fromJSDate(new Date(this.formGroup!!.value.fecha_nacimiento))
+    let edad = DateTime.fromJSDate(new Date(this.formGroup!!.value.fecha_nacimiento))
       .diffNow('years')
       .years;
-    const costo = DateTime.fromJSDate(new Date(this.formGroup!!.value.fecha_nacimiento))
+    edad = Number(Math.abs(edad).toFixed(0));
+    let costo = DateTime.fromJSDate(new Date(this.formGroup!!.value.fecha_inscripcion))
       .diffNow('years')
       .years;
-    this.formGroup!!.get('edad')!!.setValue(Math.abs(edad).toFixed(0));
-    this.formGroup!!.get('costo')!!.setValue(Number(Math.abs(costo).toFixed(0)) * 100);
+    costo = Number(Math.abs(costo).toFixed(0)) * 100;
+    this.formGroup!!.get('edad')!!.setValue(edad);
+    this.formGroup!!.get('costo')!!.setValue(costo);
   }
   public saveUser() {
     if(this.formGroup !== undefined) {
