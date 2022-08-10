@@ -28,8 +28,10 @@ export class RegistroFormComponent implements OnInit {
 
   public saveUser() {
     if(this.formGroup !== undefined) {
-      this.registroService.setUser(this.formGroup.value);
-      this.router.navigate(['/']);
+      if (this.formGroup.valid) {
+        this.registroService.setUser(this.formGroup.value);
+        this.router.navigate(['/']);
+      }
     }
   }
 
