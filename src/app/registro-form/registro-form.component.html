@@ -2,12 +2,8 @@
 
 <form [formGroup]="formGroup" *ngIf="formGroup !== undefined" (submit)="saveUser()">
   <div>
-    <label>Nombres</label>
-    <input type="text" formControlName="nombres" required>
-  </div>
-  <div>
-    <label>Apellidos</label>
-    <input type="text" formControlName="apellidos" required>
+    <label>Nombre Completo</label>
+    <input type="text" formControlName="nombre_completo" required>
   </div>
   <div>
     <label>Fecha Nacimiento</label>
