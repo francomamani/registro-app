@@ -7,6 +7,7 @@
       <th>Fecha de Nacimiento</th>
       <th>Fecha de Inscripcion</th>
       <th>Costo</th>
+      <th>Eliminar</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,9 @@
     <td>{{ user.fecha_nacimiento }}</td>
     <td>{{ user.fecha_inscripcion }}</td>
     <td>{{ user.costo }}</td>
+    <td>
+      <button (click)="onDelete(user)">Eliminar</button>
+    </td>
   </tr>
   </tbody>
 </table>

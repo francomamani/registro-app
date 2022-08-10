@@ -1,4 +1,5 @@
 export interface IUser {
+  id?: number;
   nombre_completo: string;
   edad: number;
   fecha_nacimiento: string;

@@ -14,9 +14,19 @@ export class RegistroTableComponent implements OnInit {
   constructor(public registroService: RegistroService) { }
 
   ngOnInit(): void {
+    this.onLoadUsers();
+  }
+
+  onLoadUsers() {
     this.registroService.getUsers()
       .subscribe((users: any) => {
         this.users = users;
+      })
+  }
+  onDelete(user: IUser) {
+    this.registroService.deleteUser(user.id!!)
+      .subscribe(() => {
+        this.onLoadUsers();
       })
   }
 
