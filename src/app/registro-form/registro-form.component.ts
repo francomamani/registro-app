@@ -21,6 +21,7 @@ export class RegistroFormComponent implements OnInit {
       nombres: new FormControl('', Validators.required),
       fecha_nacimiento: new FormControl('', Validators.required),
       fecha_inscripcion: new FormControl('', Validators.required),
+      edad_input: new FormControl(0, Validators.required),
       edad: new FormControl(0, Validators.required),
       costo: new FormControl(0)
     });

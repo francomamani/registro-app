@@ -20,9 +20,13 @@
     </div>
   </div>
   <div>
-    <label>Edad: {{ formGroup.get('edad')!!.value }}</label>
+    <label>Edad:</label>
+    <input type="number" formControlName="edad_input" required>
     <div *ngIf="this.formGroup.value.edad <= 18">
       <span class="required">Debe ser mayor a 18 anios</span>
+    </div>
+    <div *ngIf="this.formGroup.value.edad !== this.formGroup.value.edad_input">
+      <span class="required">La edad ingresada no coincide con la fecha de su nacimiento</span>
     </div>
   </div>
   <div>
@@ -32,6 +36,7 @@
     <button type="submit" [disabled]="!formGroup.valid ||
     this.formGroup.value.fecha_nacimiento > this.formGroup.value.fecha_inscripcion ||
     this.formGroup.value.edad <= 18 ||
+    this.formGroup.value.edad !== this.formGroup.value.edad_input ||
     this.formGroup.value.nombres.trim().split(' ').length < 2">Guardar Usuario</button>
   </div>
 </form>
