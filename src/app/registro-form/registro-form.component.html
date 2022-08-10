@@ -10,16 +10,15 @@
     <input type="text" formControlName="apellidos" required>
   </div>
   <div>
-    <label>Edad</label>
-    <input type="number" formControlName="edad" required readonly>
-  </div>
-  <div>
     <label>Fecha Nacimiento</label>
-    <input type="date" formControlName="fecha_nacimiento" required>
+    <input type="date" formControlName="fecha_nacimiento" (change)="setEdad()" required>
   </div>
   <div>
     <label>Fecha Inscripcion</label>
-    <input type="date" formControlName="fecha_inscripcion" (change)="setEdad()"  required>
+    <input type="date" formControlName="fecha_inscripcion" (change)="setEdad()" required>
+  </div>
+  <div>
+    <label>Edad: {{ formGroup.get('edad')!!.value }}</label>
   </div>
   <div>
     <label>Costo</label>

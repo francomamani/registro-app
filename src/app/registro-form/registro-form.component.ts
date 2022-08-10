@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {RegistroService} from "../services/registro.service";
 import {Router} from "@angular/router";
 import { DateTime } from 'luxon';
@@ -18,21 +18,21 @@ export class RegistroFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.fb.group({
-      nombres: [''],
-      apellidos: [''],
-      edad: [0],
-      fecha_nacimiento: [''],
-      fecha_inscripcion: [''],
-      costo: [null],
+      nombres: new FormControl('', Validators.required),
+      apellidos: new FormControl('', Validators.required),
+      fecha_nacimiento: new FormControl('', Validators.required),
+      fecha_inscripcion: new FormControl('', Validators.required),
+      edad: new FormControl(0, Validators.required),
+      costo: new FormControl(0)
     });
   }
 
   public setEdad() {
-    const fecha_nacimiento = this.formGroup!!.get('fecha_nacimiento')!!.value;
-    const edad = DateTime.fromFormat(fecha_nacimiento, 'dd.MM.yyyy')
+    const edad = DateTime.fromJSDate(new Date(this.formGroup!!.value.fecha_nacimiento))
       .diffNow('years')
       .years;
-    this.formGroup!!.get('edad')!!.setValue(Math.abs(edad));
+    console.log(edad);
+    this.formGroup!!.get('edad')!!.setValue(Math.abs(edad).toFixed(0));
   }
   public saveUser() {
     if(this.formGroup !== undefined) {
