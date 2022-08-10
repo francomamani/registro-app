@@ -1,1 +1,26 @@
-<p>registro-form works!</p>
+<form [formGroup]="formGroup" *ngIf="formGroup !== undefined">
+  <div>
+    <label>Nombre completo</label>
+    <input type="text" formControlName="nombre_completo" required>
+  </div>
+  <div>
+    <label>Edad</label>
+    <input type="number" formControlName="edad" required>
+  </div>
+  <div>
+    <label>Fecha Nacimiento</label>
+    <input type="text" formControlName="fecha_nacimiento" required>
+  </div>
+  <div>
+    <label>Fecha Inscripcion</label>
+    <input type="text" formControlName="fecha_inscripcion" required>
+  </div>
+  <div>
+    <label>Costo</label>
+    <input type="text" formControlName="costo" required>
+  </div>
+  <div>
+    <label></label>
+    <input type="text" formControlName="" required>
+  </div>
+</form>
