@@ -1,4 +1,6 @@
-<form [formGroup]="formGroup" *ngIf="formGroup !== undefined">
+<a [routerLink]="'/'">Volver a la lista de usuarios</a>
+
+<form [formGroup]="formGroup" *ngIf="formGroup !== undefined" (submit)="saveUser()">
   <div>
     <label>Nombre completo</label>
     <input type="text" formControlName="nombre_completo" required>
@@ -9,18 +11,17 @@
   </div>
   <div>
     <label>Fecha Nacimiento</label>
-    <input type="text" formControlName="fecha_nacimiento" required>
+    <input type="date" formControlName="fecha_nacimiento" required>
   </div>
   <div>
     <label>Fecha Inscripcion</label>
-    <input type="text" formControlName="fecha_inscripcion" required>
+    <input type="date" formControlName="fecha_inscripcion" required>
   </div>
   <div>
     <label>Costo</label>
-    <input type="text" formControlName="costo" required>
+    <input type="number" formControlName="costo" required>
   </div>
   <div>
-    <label></label>
-    <input type="text" formControlName="" required>
+    <button type="submit">Guardar Usuario</button>
   </div>
 </form>
